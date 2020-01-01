@@ -34,7 +34,7 @@ public class Request {
             System.out.println(block.toString());
 
         } catch (Exception e) {
-            System.out.println("Error !!");
+            System.out.println("request.execute error !!");
         }
 
         return BlockDto.RegistBlockReq.builder()

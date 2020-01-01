@@ -2,8 +2,8 @@ package com.spring.springprojecttracker.api;
 
 import com.spring.springprojecttracker.dto.block.BlockDto;
 import com.spring.springprojecttracker.service.block.BlockService;
+import com.spring.springprojecttracker.tracker.Request;
 import foundation.icon.icx.IconService;
-import foundation.icon.icx.Request;
 import foundation.icon.icx.data.Block;
 import foundation.icon.icx.transport.http.HttpProvider;
 import lombok.AllArgsConstructor;
@@ -38,24 +38,14 @@ public class blockController {
     @ResponseStatus(value = HttpStatus.OK)
     public String ang() {
 
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .readTimeout(200, TimeUnit.MILLISECONDS)
-                .writeTimeout(600, TimeUnit.MILLISECONDS)
-                .build();
+        Request request = new Request("https://bicon.net.solidwallet.io/api/v3");
+        BlockDto.RegistBlockReq dto;
+        dto = request.getBlock("1");
 
-        IconService iconService = new IconService(new HttpProvider(okHttpClient, "https://bicon.net.solidwallet.io/api/v3"));
-
-        Request<Block> request = iconService.getBlock(new BigInteger("100"));
-
-        try {
-            Block block = request.execute();
-            System.out.println(block.toString());
-
-        } catch (Exception e) {
-            System.out.println("Error !!");
-        }
-
-
+        System.out.println(dto.getBlockHeight());
+        System.out.println(dto.getBlockHash());
+        System.out.println(dto.getChannel());
+        System.out.println(dto.getPeerId());
         return "test";
     }
 }

@@ -2,6 +2,10 @@ package com.spring.springprojecttracker.tracker;
 
 
 import com.spring.springprojecttracker.dto.block.BlockDto;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -9,7 +13,13 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 @WebListener
+@Configuration
+@ConfigurationProperties(prefix = "blockchain")
+@Getter
+@Setter
 public class DaemonListener implements ServletContextListener, Runnable {
+
+    private String apiUrl;
     private Thread thread;
     private boolean isShutdown = false;
 
@@ -27,19 +37,13 @@ public class DaemonListener implements ServletContextListener, Runnable {
 
     public void run() {
         Thread currentThread = Thread.currentThread();
-        Request request = new Request("https://bicon.net.solidwallet.io/api/v3");
-        BlockDto.RegistBlockReq dto;
+        Tracker t = new Tracker(apiUrl);
 
         while (currentThread == thread && !this.isShutdown) {
             try {
                 System.out.println("== DaemonListener is running. ==");
 
-                dto = request.getBlock("1");
-
-                System.out.println(dto.getBlockHeight());
-                System.out.println(dto.getBlockHash());
-                System.out.println(dto.getChannel());
-                System.out.println(dto.getPeerId());
+                t.crawler();
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();

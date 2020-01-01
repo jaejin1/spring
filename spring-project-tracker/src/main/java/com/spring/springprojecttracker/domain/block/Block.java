@@ -1,19 +1,16 @@
 package com.spring.springprojecttracker.domain.block;
 
-import com.spring.springprojecttracker.domain.transaction.Transaction;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @Getter
 @Setter
+@Entity
 public class Block {
 
     @Id
@@ -23,11 +20,20 @@ public class Block {
 
     private String peerId;
 
-    private String Signature;
+    private String signature;
 
     private String blockHash;
 
     private LocalDateTime timestamp;
+
+    @Builder
+    public Block(Long blockHeight, String channel, String peerId, String signature, String blockHash) {
+        this.blockHeight = blockHeight;
+        this.channel = channel;
+        this.peerId = peerId;
+        this.signature = signature;
+        this.blockHash = blockHash;
+    }
 
 //    private Integer txsCount;
 //

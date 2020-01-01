@@ -1,0 +1,15 @@
+POST http://localhost:8080/block
+Content-Type: application/json
+
+{
+  "blockHeight": "8019524",
+  "channel": "1",
+  "peerId": "hxec79e9c1c882632688f8c8f9a07832bcabe8be8f",
+  "signature": "WPCnIVdTq/Ma9+AXFYXxVUOFwwaHLiqxYhyyqk9o5fQOOSQWXCi++lvuLAyPqzsmxKxRMmSFISBhrK+daRavvQE=",
+  "blockHash": "623f4a7e5e0f1c6b20f087745104279f3e7b6a89792ff0d5e86c08b284dc996a"
+}
+
+###
+GET http://localhost:8080/block
+
+###

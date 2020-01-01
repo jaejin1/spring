@@ -23,6 +23,7 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/block/**");
         super.configure(web);
     }
 

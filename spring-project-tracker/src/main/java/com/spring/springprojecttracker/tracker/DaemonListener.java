@@ -1,4 +1,5 @@
-package com.spring.springprojecttracker.listener;
+package com.spring.springprojecttracker.tracker;
+
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -15,7 +16,6 @@ public class DaemonListener implements ServletContextListener, Runnable {
     public void startDaemon() {
         if (thread == null) {
             thread = new Thread(this, "Daemon thread for background task");
-
         }
 
         if (!thread.isAlive()) {

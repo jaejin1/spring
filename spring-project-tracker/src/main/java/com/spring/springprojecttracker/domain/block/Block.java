@@ -14,7 +14,7 @@ import java.util.List;
 public class Block {
 
     @Id
-    private Long blockHeight;
+    private String blockHeight;
 
     private String channel;
 
@@ -27,12 +27,13 @@ public class Block {
     private LocalDateTime timestamp;
 
     @Builder
-    public Block(Long blockHeight, String channel, String peerId, String signature, String blockHash) {
+    public Block(String blockHeight, String channel, String peerId, String signature, String blockHash, LocalDateTime timestamp) {
         this.blockHeight = blockHeight;
         this.channel = channel;
         this.peerId = peerId;
         this.signature = signature;
         this.blockHash = blockHash;
+        this.timestamp = timestamp;
     }
 
 //    private Integer txsCount;

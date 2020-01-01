@@ -14,5 +14,4 @@ public class SpringProjectTrackerApplication {
         application.addListeners(new ApplicationPidFileWriter());
         application.run(args);
     }
-
 }

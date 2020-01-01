@@ -5,15 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
+@Entity
 public class Transaction {
 
     @Id
@@ -26,7 +24,7 @@ public class Transaction {
 
     private String channel;
 
-    private Long BlockHeight;
+    private String BlockHeight;
 
     private String fromAddr;
 

@@ -15,7 +15,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
 
 blockchain:
   apiUrl: https://bicon.net.solidwallet.io/api/v3

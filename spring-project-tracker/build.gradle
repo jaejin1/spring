@@ -24,6 +24,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
     annotationProcessor group: 'org.springframework.boot', name: 'spring-boot-configuration-processor'
     implementation 'foundation.icon:icon-sdk:0.9.15'
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'

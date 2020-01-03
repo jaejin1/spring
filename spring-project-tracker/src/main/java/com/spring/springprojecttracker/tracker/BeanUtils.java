@@ -15,7 +15,12 @@ public class BeanUtils {
         ApplicationContext applicationContext = null;
 
         while (applicationContext == null) {
-            applicationContext = ApplicationContextProvider.getApplicationContext();
+            try{
+                Thread.sleep(100);
+                applicationContext = ApplicationContextProvider.getApplicationContext();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         return applicationContext.getBean(beanName);
     }

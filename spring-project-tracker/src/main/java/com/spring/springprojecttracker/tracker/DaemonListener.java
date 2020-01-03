@@ -112,8 +112,8 @@ public class DaemonListener implements ServletContextListener, Runnable
 
     public void StoreTx(Block block, Request request) {
         List<TransactionDto.RegistTransactionReq> txListDto = request.getTransactionInfoByBlockHeight(block);
-        for (int txCount = 0; txCount < txListDto.size(); txCount++) {
-            transactionController.registTx(txListDto.get(txCount));
+        for (TransactionDto.RegistTransactionReq dto : txListDto) {
+            transactionController.registTx(dto);
         }
     }
 }

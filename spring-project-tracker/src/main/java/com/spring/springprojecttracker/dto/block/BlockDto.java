@@ -13,7 +13,7 @@ public class BlockDto {
     @Getter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class RegistBlockReq {
-        private String blockHeight;
+        private Long blockHeight;
         private String channel;
         private String peerId;
         private String signature;
@@ -21,7 +21,7 @@ public class BlockDto {
         private LocalDateTime timestamp;
 
         @Builder
-        public RegistBlockReq(String blockHeight, String channel, String peerId, String signature, String blockHash, LocalDateTime timestamp) {
+        public RegistBlockReq(Long blockHeight, String channel, String peerId, String signature, String blockHash, LocalDateTime timestamp) {
             this.blockHeight = blockHeight;
             this.channel = channel;
             this.peerId = peerId;
@@ -44,7 +44,7 @@ public class BlockDto {
 
     @Getter
     public static class Res {
-        private String blockHeight;
+        private Long blockHeight;
         private String channel;
         private String peerId;
         private String signature;

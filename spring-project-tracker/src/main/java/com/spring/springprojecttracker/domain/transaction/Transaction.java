@@ -1,9 +1,6 @@
 package com.spring.springprojecttracker.domain.transaction;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -24,7 +21,7 @@ public class Transaction {
 
     private String channel;
 
-    private String BlockHeight;
+    private Long blockHeight;
 
     private String fromAddr;
 
@@ -32,4 +29,15 @@ public class Transaction {
     private String data;
 
     private LocalDateTime timestamp;
+
+    @Builder
+    public Transaction(String txHash, String status, String channel, Long blockHeight, String fromAddr, String data, LocalDateTime timestamp) {
+        this.blockHeight = blockHeight;
+        this.txHash = txHash;
+        this.status = status;
+        this.channel = channel;
+        this.fromAddr = fromAddr;
+        this.data = data;
+        this.timestamp = timestamp;
+    }
 }

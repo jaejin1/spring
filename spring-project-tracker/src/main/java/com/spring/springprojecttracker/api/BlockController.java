@@ -9,23 +9,25 @@ import foundation.icon.icx.transport.http.HttpProvider;
 import lombok.AllArgsConstructor;
 import okhttp3.OkHttpClient;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.math.BigInteger;
 import java.util.concurrent.TimeUnit;
 
+@Component
 @RestController
 @RequestMapping("block")
 @AllArgsConstructor
-public class blockController {
+public class BlockController {
 
     private BlockService blockService;
 
-    @GetMapping
+    @GetMapping(value = "/{blockHeight}")
     @ResponseStatus(value = HttpStatus.OK)
-    public String test() {
-        return "Hello";
+    public BlockDto.Res getBlock(@PathVariable final long blockHeight) {
+        return new BlockDto.Res(blockService.findByBlockHeight(blockHeight));
     }
 
     @PostMapping
@@ -34,18 +36,12 @@ public class blockController {
         return new BlockDto.Res(blockService.create(dto));
     }
 
-    @GetMapping(value = "test")
+    @GetMapping(value = "last")
     @ResponseStatus(value = HttpStatus.OK)
-    public String ang() {
-
-        Request request = new Request("https://bicon.net.solidwallet.io/api/v3");
-        BlockDto.RegistBlockReq dto;
-        dto = request.getBlock("1");
-
-        System.out.println(dto.getBlockHeight());
-        System.out.println(dto.getBlockHash());
-        System.out.println(dto.getChannel());
-        System.out.println(dto.getPeerId());
-        return "test";
+    public Long findLastBlockHeight() {
+        if (blockService.findLastBlockHeight() == null){
+            return -1L;
+        }
+        return blockService.findLastBlockHeight().getBlockHeight();
     }
 }

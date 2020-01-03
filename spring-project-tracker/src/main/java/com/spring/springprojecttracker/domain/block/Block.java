@@ -14,7 +14,7 @@ import java.util.List;
 public class Block {
 
     @Id
-    private String blockHeight;
+    private Long blockHeight;
 
     private String channel;
 
@@ -27,7 +27,7 @@ public class Block {
     private LocalDateTime timestamp;
 
     @Builder
-    public Block(String blockHeight, String channel, String peerId, String signature, String blockHash, LocalDateTime timestamp) {
+    public Block(Long blockHeight, String channel, String peerId, String signature, String blockHash, LocalDateTime timestamp) {
         this.blockHeight = blockHeight;
         this.channel = channel;
         this.peerId = peerId;

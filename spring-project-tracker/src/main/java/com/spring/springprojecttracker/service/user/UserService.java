@@ -29,7 +29,6 @@ public class UserService implements UserDetailsService {
     public UserEntity joinUser(UserDto userDto) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
-
         return userRepository.save(userDto.toEntity());
     }
 

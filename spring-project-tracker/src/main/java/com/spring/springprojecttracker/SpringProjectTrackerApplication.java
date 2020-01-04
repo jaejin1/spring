@@ -17,8 +17,4 @@ public class SpringProjectTrackerApplication {
         application.addListeners(new ApplicationPidFileWriter());
         application.run(args);
     }
-//    @Bean
-//    public DaemonListener schedulerRunner() {
-//        return new DaemonListener();
-//    }
 }

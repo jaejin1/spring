@@ -14,6 +14,7 @@ public class UserDto {
     private Long id;
     private String email;
     private String password;
+    private String role;
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
@@ -22,13 +23,15 @@ public class UserDto {
                 .id(id)
                 .email(email)
                 .password(password)
+                .role(role)
                 .build();
     }
 
     @Builder
-    public UserDto(Long id, String email, String password) {
+    public UserDto(Long id, String email, String password, String role) {
         this.id = id;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 }

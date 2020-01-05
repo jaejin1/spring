@@ -28,7 +28,6 @@ public class UserController {
     @PostMapping("/user/signup")
     public String execSignup(UserDto memberDto) {
         userService.joinUser(memberDto);
-
         return "redirect:/user/login";
     }
 
@@ -63,8 +62,8 @@ public class UserController {
     }
 
     // 어드민 페이지
-    @GetMapping("/admin")
-    public String dispAdmin() {
-        return "/admin";
-    }
+//    @GetMapping("/admin")
+//    public String dispAdmin() {
+//        return "/admin";
+//    }
 }

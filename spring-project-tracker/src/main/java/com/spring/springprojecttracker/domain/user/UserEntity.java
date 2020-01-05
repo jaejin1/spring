@@ -19,10 +19,13 @@ public class UserEntity extends BaseTimeEntity {
     @Column(length = 100, nullable = false)
     private String password;
 
+    private String role;
+
     @Builder
-    public UserEntity(Long id, String email, String password) {
+    public UserEntity(Long id, String email, String password, String role) {
         this.id = id;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 }

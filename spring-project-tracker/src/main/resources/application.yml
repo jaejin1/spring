@@ -16,6 +16,10 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
 
 blockchain:
   apiUrl: https://bicon.net.solidwallet.io/api/v3

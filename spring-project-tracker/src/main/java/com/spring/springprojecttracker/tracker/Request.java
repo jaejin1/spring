@@ -1,15 +1,12 @@
 package com.spring.springprojecttracker.tracker;
 
-import com.spring.springprojecttracker.domain.transaction.Transaction;
 import com.spring.springprojecttracker.dto.block.BlockDto;
 import com.spring.springprojecttracker.dto.transaction.TransactionDto;
-import com.spring.springprojecttracker.service.transaction.TransactionService;
 import foundation.icon.icx.IconService;
 import foundation.icon.icx.data.Block;
 import foundation.icon.icx.data.ConfirmedTransaction;
 import foundation.icon.icx.transport.http.HttpProvider;
 import okhttp3.OkHttpClient;
-import org.apache.tomcat.jni.Local;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationRunner;
@@ -17,7 +14,6 @@ import org.springframework.boot.ApplicationRunner;
 import java.math.BigInteger;
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;

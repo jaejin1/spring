@@ -4,14 +4,10 @@ import com.spring.springprojecttracker.domain.block.Block;
 import com.spring.springprojecttracker.domain.block.BlockRepository;
 import com.spring.springprojecttracker.dto.block.BlockDto;
 import lombok.AllArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor

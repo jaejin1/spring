@@ -1,7 +1,7 @@
 package com.spring.springprojecttracker.tracker;
 
-import com.spring.springprojecttracker.controller.Block.BlockRestController;
-import com.spring.springprojecttracker.controller.Transaction.TransactionRestController;
+import com.spring.springprojecttracker.controller.block.BlockRestController;
+import com.spring.springprojecttracker.controller.transaction.TransactionRestController;
 import com.spring.springprojecttracker.dto.block.BlockDto;
 import com.spring.springprojecttracker.dto.transaction.TransactionDto;
 import foundation.icon.icx.data.Block;

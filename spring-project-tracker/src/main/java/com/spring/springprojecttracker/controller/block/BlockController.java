@@ -1,4 +1,4 @@
-package com.spring.springprojecttracker.controller.Block;
+package com.spring.springprojecttracker.controller.block;
 
 import com.spring.springprojecttracker.service.block.BlockService;
 import lombok.AllArgsConstructor;

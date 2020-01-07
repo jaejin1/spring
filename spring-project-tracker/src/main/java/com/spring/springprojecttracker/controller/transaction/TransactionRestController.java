@@ -1,4 +1,4 @@
-package com.spring.springprojecttracker.controller.Transaction;
+package com.spring.springprojecttracker.controller.transaction;
 
 import com.spring.springprojecttracker.dto.transaction.TransactionDto;
 import com.spring.springprojecttracker.service.transaction.TransactionService;

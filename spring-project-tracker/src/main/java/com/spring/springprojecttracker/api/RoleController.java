@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RoleController {
 
     @PostAuthorize("hasAuthority('USER')")
-    @GetMapping("/user")
+    @GetMapping("/jwtuser")
     public String user(Authentication authentication) {
         System.out.println("RoleController : " + authentication.getAuthorities().toString());
         System.out.println("RoleController : " + authentication.getPrincipal());
@@ -18,7 +18,7 @@ public class RoleController {
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping("/admin")
+    @GetMapping("/jwtadmin")
     public String admin(Authentication authentication) {
         System.out.println("RoleController : " + authentication.getAuthorities().toString());
         System.out.println("RoleController : " + authentication.getPrincipal());

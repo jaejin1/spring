@@ -12,6 +12,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -25,7 +26,13 @@ public class BaseSecurityHandler implements AuthenticationSuccessHandler, Authen
                                         Authentication authentication) {
         UserDetails userDetails = new UserDetailsImpl(authentication.getPrincipal().toString(), new ArrayList<>(authentication.getAuthorities()));
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        response.setHeader(JwtInfo.HEADER_NAME, JwtUtil.createToken(userDetails));
+        String token = JwtUtil.createToken(userDetails);
+        response.setHeader(JwtInfo.HEADER_NAME, token);
+
+        System.out.println(request.getSession().getId());
+        System.out.println(token);
+        Cookie sessionCookie = new Cookie(request.getSession().getId(), token);
+        response.addCookie(sessionCookie);
     }
 
     @Override

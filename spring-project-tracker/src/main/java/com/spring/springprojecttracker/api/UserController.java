@@ -1,9 +1,11 @@
 package com.spring.springprojecttracker.api;
 
 import com.spring.springprojecttracker.dto.user.UserDto;
+import com.spring.springprojecttracker.service.block.BlockService;
 import com.spring.springprojecttracker.service.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -13,7 +15,7 @@ public class UserController {
 
     private UserService userService;
 
-    @GetMapping(value = "/index")
+    @GetMapping(value = "/")
     public String home() {
         return "/index";
     }
@@ -28,6 +30,7 @@ public class UserController {
     @PostMapping("/user/signup")
     public String execSignup(UserDto memberDto) {
         userService.joinUser(memberDto);
+
         return "redirect:/user/login";
     }
 
@@ -62,8 +65,8 @@ public class UserController {
     }
 
     // 어드민 페이지
-//    @GetMapping("/admin")
-//    public String dispAdmin() {
-//        return "/admin";
-//    }
+    @GetMapping("/admin")
+    public String dispAdmin() {
+        return "/admin";
+    }
 }

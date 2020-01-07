@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>main</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+</head>
+<body>
+<h1>block page</h1>
+<hr>
+<a th:href="@{/}">뒤로</a>
+
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+    <div class="col-md-12">
+        <br/>
+        <br/>
+        <!-- 목록 출력 영역 -->
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+            <tr>
+                <th>blockHeight</th>
+                <th>channel</th>
+                <th>peerId</th>
+                <th>signature</th>
+                <th>blockHash</th>
+                <th>timestamp</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            <tr th:each="block : ${block}">
+                <td th:text="${block.blockHeight}"></td>
+                <td th:text="${block.channel}"></td>
+                <td th:text="${block.peerId}"></td>
+                <td th:text="${block.signature}"></td>
+                <td th:text="${block.blockHash}"></td>
+                <td th:text="${block.timestamp}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+
+<script src="/js/app/main.js"></script>
+</body>
+</html>

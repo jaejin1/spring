@@ -47,6 +47,7 @@ public class TransactionDto {
 
     @Getter
     public static class Res {
+        private Long id;
         private String txHash;
         private String status;
         private String channel;
@@ -56,6 +57,7 @@ public class TransactionDto {
         private LocalDateTime timestamp;
 
         public Res(Transaction transaction) {
+            this.id = transaction.getId();
             this.txHash = transaction.getTxHash();
             this.status = transaction.getStatus();
             this.channel = transaction.getChannel();

@@ -1,18 +1,16 @@
 package com.spring.springprojecttracker.tracker;
 
 
-import com.spring.springprojecttracker.api.BlockController;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.spring.springprojecttracker.api.Block.BlockRestController;
 
 
 public class Test {
 
-    private BlockController blockController;
+    private BlockRestController blockController;
     private String name;
 
     public Test(String name) {
-        blockController = (BlockController) BeanUtils.getBean("blockController");
+        blockController = (BlockRestController) BeanUtils.getBean("blockController");
         this.name = name;
     }
 

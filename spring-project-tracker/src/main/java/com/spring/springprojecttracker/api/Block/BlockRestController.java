@@ -1,4 +1,4 @@
-package com.spring.springprojecttracker.api;
+package com.spring.springprojecttracker.api.Block;
 
 import com.spring.springprojecttracker.dto.block.BlockDto;
 import com.spring.springprojecttracker.service.block.BlockService;
@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import okhttp3.OkHttpClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("block")
 @AllArgsConstructor
-public class BlockController {
+public class BlockRestController {
 
     private BlockService blockService;
 

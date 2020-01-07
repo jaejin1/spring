@@ -1,14 +1,10 @@
 package com.spring.springprojecttracker.tracker;
 
-import com.spring.springprojecttracker.api.BlockController;
-import com.spring.springprojecttracker.api.TransactionController;
+import com.spring.springprojecttracker.api.Block.BlockRestController;
+import com.spring.springprojecttracker.api.Transaction.TransactionRestController;
 import com.spring.springprojecttracker.dto.block.BlockDto;
 import com.spring.springprojecttracker.dto.transaction.TransactionDto;
 import foundation.icon.icx.data.Block;
-import lombok.Setter;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -20,8 +16,13 @@ import java.util.List;
 public class DaemonListener implements ServletContextListener, Runnable
 {
 
-    private BlockController blockController;
-    private TransactionController transactionController;
+    private final BlockRestController blockController;
+    private final TransactionRestController transactionController;
+
+    public DaemonListener(BlockRestController blockController, TransactionRestController transactionController){
+        this.blockController = blockController;
+        this.transactionController = transactionController;
+    }
 
     /** 작업을 수행할 thread */
     private Thread thread;
@@ -42,8 +43,10 @@ public class DaemonListener implements ServletContextListener, Runnable
     public void run() {
         Thread currentThread = Thread.currentThread();
         Request request = new Request("https://bicon.net.solidwallet.io/api/v3");
-        blockController = (BlockController) BeanUtils.getBean("blockController");
-        transactionController = (TransactionController) BeanUtils.getBean("transactionController");
+
+        // 생성자를 만들지 않을때 직접 getBean도 가능
+        //blockController = (BlockController) BeanUtils.getBean("blockController");
+        //transactionController = (TransactionController) BeanUtils.getBean("transactionController");
 
         while (currentThread == thread && !this.isShutdown) {
             try {

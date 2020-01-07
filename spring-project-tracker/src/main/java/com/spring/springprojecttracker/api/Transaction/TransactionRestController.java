@@ -1,4 +1,4 @@
-package com.spring.springprojecttracker.api;
+package com.spring.springprojecttracker.api.Transaction;
 
 import com.spring.springprojecttracker.dto.transaction.TransactionDto;
 import com.spring.springprojecttracker.service.transaction.TransactionService;
@@ -11,7 +11,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("tx")
 @AllArgsConstructor
-public class TransactionController {
+public class TransactionRestController {
 
     private TransactionService transactionService;
 

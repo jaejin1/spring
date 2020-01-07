@@ -28,6 +28,11 @@ public class UserService implements UserDetailsService {
     @Transactional
     public UserEntity joinUser(UserDto userDto) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        if(("admin@example.com").equals(userDto.getEmail())) {
+            userDto.setRole(Role.ADMIN.getValue());
+        } else {
+            userDto.setRole(Role.USER.getValue());
+        }
         userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         return userRepository.save(userDto.toEntity());
     }

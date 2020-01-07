@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
@@ -31,5 +33,12 @@ public class BlockService {
             System.out.println(block.getBlockHeight());
         }
         return blockRepository.findFirstByOrderByBlockHeightDesc();
+    }
+
+    @Transactional(readOnly = true)
+    public List<BlockDto.Res> findAllDesc() {
+        return blockRepository.findAllByOrderByBlockHeightDesc()
+                .map(BlockDto.Res::new)
+                .collect(Collectors.toList());
     }
 }

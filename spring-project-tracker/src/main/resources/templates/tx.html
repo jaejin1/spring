@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>main</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+</head>
+<body>
+<h1>tx page</h1>
+<hr>
+<a th:href="@{/}">뒤로</a>
+
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+    <div class="col-md-12">
+        <br/>
+        <br/>
+        <!-- 목록 출력 영역 -->
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+            <tr>
+                <th>id</th>
+                <th>txHash</th>
+                <th>status</th>
+                <th>channel</th>
+                <th>blockHeight</th>
+                <th>fromAddr</th>
+                <th>data</th>
+                <th>timestamp</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            <tr th:each="tx : ${tx}">
+                <td th:text="${tx.id}"></td>
+                <td th:text="${tx.txHash}"></td>
+                <td th:text="${tx.status}"></td>
+                <td th:text="${tx.channel}"></td>
+                <td th:text="${tx.blockHeight}"></td>
+                <td th:text="${tx.fromAddr}"></td>
+                <td th:text="${tx.data}"></td>
+                <td th:text="${tx.timestamp}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+
+<script src="/js/app/main.js"></script>
+</body>
+</html>

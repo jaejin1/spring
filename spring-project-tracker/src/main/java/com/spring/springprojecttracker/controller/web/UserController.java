@@ -1,11 +1,9 @@
-package com.spring.springprojecttracker.api;
+package com.spring.springprojecttracker.controller.web;
 
 import com.spring.springprojecttracker.dto.user.UserDto;
-import com.spring.springprojecttracker.service.block.BlockService;
 import com.spring.springprojecttracker.service.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 

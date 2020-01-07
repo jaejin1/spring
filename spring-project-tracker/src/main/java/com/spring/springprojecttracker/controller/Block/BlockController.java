@@ -1,8 +1,7 @@
-package com.spring.springprojecttracker.api.Block;
+package com.spring.springprojecttracker.controller.Block;
 
 import com.spring.springprojecttracker.service.block.BlockService;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

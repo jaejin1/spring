@@ -1,10 +1,8 @@
-package com.spring.springprojecttracker.api.jwt;
+package com.spring.springprojecttracker.controller.jwt;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.springprojecttracker.security.auth.UserDetailsImpl;
 import com.spring.springprojecttracker.security.auth.jwt.JwtInfo;
 import com.spring.springprojecttracker.security.auth.jwt.util.JwtUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

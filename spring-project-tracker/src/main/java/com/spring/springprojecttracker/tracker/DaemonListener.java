@@ -1,7 +1,7 @@
 package com.spring.springprojecttracker.tracker;
 
-import com.spring.springprojecttracker.api.Block.BlockRestController;
-import com.spring.springprojecttracker.api.Transaction.TransactionRestController;
+import com.spring.springprojecttracker.controller.Block.BlockRestController;
+import com.spring.springprojecttracker.controller.Transaction.TransactionRestController;
 import com.spring.springprojecttracker.dto.block.BlockDto;
 import com.spring.springprojecttracker.dto.transaction.TransactionDto;
 import foundation.icon.icx.data.Block;
@@ -99,21 +99,21 @@ public class DaemonListener implements ServletContextListener, Runnable
         }
     }
 
-    public Long GetCurrentBlockHeightInDB() {
+    private Long GetCurrentBlockHeightInDB() {
         Long blockHeightInDB = blockController.findLastBlockHeight();
         return blockHeightInDB;
     }
 
-    public Block GetBlockInBlockChain(Request request, Long blockHeight) {
+    private Block GetBlockInBlockChain(Request request, Long blockHeight) {
         return request.getBlock(blockHeight);
     }
 
-    public void StoreBlock(Block block, Request request) {
+    private void StoreBlock(Block block, Request request) {
         BlockDto.RegistBlockReq dto = request.getBlockInfo(block);
         blockController.registBlock(dto);
     }
 
-    public void StoreTx(Block block, Request request) {
+    private void StoreTx(Block block, Request request) {
         List<TransactionDto.RegistTransactionReq> txListDto = request.getTransactionInfoByBlockHeight(block);
         for (TransactionDto.RegistTransactionReq dto : txListDto) {
             transactionController.registTx(dto);

@@ -28,6 +28,3 @@ server:
     session:
       cookie:
         name: EDDYSESSION
-
-blockchain:
-  apiUrl: https://bicon.net.solidwallet.io/api/v3

@@ -1,4 +1,4 @@
-package com.spring.springprojecttracker.api;
+package com.spring.springprojecttracker.api.jwt;
 
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;

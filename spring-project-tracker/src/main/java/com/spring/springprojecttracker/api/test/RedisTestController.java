@@ -1,4 +1,4 @@
-package com.spring.springprojecttracker.api;
+package com.spring.springprojecttracker.api.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

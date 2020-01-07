@@ -1,4 +1,4 @@
-package com.spring.springprojecttracker.api;
+package com.spring.springprojecttracker.api.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.springprojecttracker.security.auth.UserDetailsImpl;

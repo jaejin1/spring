@@ -4,6 +4,9 @@ import com.spring.springprojecttracker.domain.block.Block;
 import com.spring.springprojecttracker.domain.block.BlockRepository;
 import com.spring.springprojecttracker.dto.block.BlockDto;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +17,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Service
 public class BlockService {
+
     private final BlockRepository blockRepository;
 
     public Block create(BlockDto.RegistBlockReq dto) {
@@ -26,12 +30,6 @@ public class BlockService {
     }
 
     public Block findLastBlockHeight() {
-        Block block = blockRepository.findFirstByOrderByBlockHeightDesc();
-        if (block == null) {
-            return null;
-        } else {
-            System.out.println(block.getBlockHeight());
-        }
         return blockRepository.findFirstByOrderByBlockHeightDesc();
     }
 

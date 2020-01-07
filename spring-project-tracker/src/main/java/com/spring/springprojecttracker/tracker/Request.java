@@ -10,6 +10,9 @@ import foundation.icon.icx.data.ConfirmedTransaction;
 import foundation.icon.icx.transport.http.HttpProvider;
 import okhttp3.OkHttpClient;
 import org.apache.tomcat.jni.Local;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.ApplicationRunner;
 
 import java.math.BigInteger;
 import java.time.Instant;
@@ -21,6 +24,8 @@ import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 public class Request {
+
+    private Logger logger = LoggerFactory.getLogger(ApplicationRunner.class);
 
     private String URL;
     private OkHttpClient okHttpClient;
@@ -40,7 +45,7 @@ public class Request {
         try {
             block = request.execute().getHeight().longValue();
         } catch (Exception e) {
-            System.out.println("request.execute error !!");
+            logger.error("request execute error");
         }
 
         return block;
@@ -54,7 +59,7 @@ public class Request {
         try {
             block = request.execute();
         } catch (Exception e) {
-            System.out.println("request.execute error !!");
+            logger.error("request execute error");
         }
 
         return block;

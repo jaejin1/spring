@@ -1,7 +1,7 @@
 package com.spring.springprojecttracker.tracker;
 
-import com.spring.springprojecttracker.controller.block.BlockRestController;
-import com.spring.springprojecttracker.controller.transaction.TransactionRestController;
+import com.spring.springprojecttracker.controller.block.BlockController;
+import com.spring.springprojecttracker.controller.transaction.TransactionController;
 import com.spring.springprojecttracker.dto.block.BlockDto;
 import com.spring.springprojecttracker.dto.transaction.TransactionDto;
 import foundation.icon.icx.data.Block;
@@ -18,15 +18,14 @@ import java.util.List;
 @WebListener
 public class DaemonListener implements ServletContextListener, Runnable
 {
-
     private Logger logger = LoggerFactory.getLogger(ApplicationRunner.class);
 
     private static final String API_URL = "https://bicon.net.solidwallet.io/api/v3";
 
-    private final BlockRestController blockController;
-    private final TransactionRestController transactionController;
+    private final BlockController blockController;
+    private final TransactionController transactionController;
 
-    public DaemonListener(BlockRestController blockController, TransactionRestController transactionController){
+    public DaemonListener(BlockController blockController, TransactionController transactionController){
         this.blockController = blockController;
         this.transactionController = transactionController;
     }

@@ -21,6 +21,11 @@ public class TransactionService {
     }
 
     @Transactional(readOnly = true)
+    public Transaction findByTxId(long txId) {
+        return transactionRepository.findById(txId);
+    }
+
+    @Transactional(readOnly = true)
     public List<TransactionDto.Res> findAllDesc() {
         return transactionRepository.findAllByOrderByIdDesc()
                 .map(TransactionDto.Res::new)

@@ -8,4 +8,5 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 
     Stream<Transaction> findAllByOrderByIdDesc();
 
+    Transaction findById(long txId);
 }
